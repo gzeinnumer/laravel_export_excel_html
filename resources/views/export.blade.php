@@ -1,3 +1,5 @@
+<html>
+
 <p>hay</p>
 
 <table class="table table-striped">
@@ -13,7 +15,7 @@
     <tbody>
         @foreach($shows as $show)
         <tr>
-            <td>{{$show->id}}</td>
+            <td style="background-color: #000000;">{{$show->id}}</td>
             <td>{{$show->show_name}}</td>
             <td>{{$show->position}}</td>
             <td>{{$show->number}}</td>
@@ -21,3 +23,5 @@
         @endforeach
     </tbody>
 </table>
+
+</html>
