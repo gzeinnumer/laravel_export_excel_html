@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\InvoicesExport;
 use App\Exports\PersibExport;
+use App\Exports\PersibExportMulti;
 use App\Models\Persib;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -35,6 +37,11 @@ class PersibController extends Controller
 
     public function export()
     {
-        return Excel::download(new PersibExport(), 'persib.xlsx');
+        return Excel::download(new PersibExport(date("Y-m")), 'persib.xlsx');
+    }
+
+    public function download()
+    {
+        return (new PersibExportMulti(2018))->download('invoices.xlsx');
     }
 }

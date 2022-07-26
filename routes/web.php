@@ -14,13 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 //https://www.matawebsite.com/blog/laravel-export-excel
 Route::get('persib', [PersibController::class, 'create'])->name('persib.create');
 Route::post('persib', [PersibController::class, 'store'])->name('persib.store');
+Route::get('/', [PersibController::class, 'index'])->name('persib.index');
 Route::get('persib/list', [PersibController::class, 'index'])->name('persib.index');
 Route::get('export', [PersibController::class, 'export']);
+Route::get('download', [PersibController::class, 'download']);
